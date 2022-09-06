@@ -69,7 +69,8 @@ const TopNavDesktop = () => {
                 >
                   <PersonOutlineRoundedIcon />
                 </IconButton>
-                <Link href="#">Sign in</Link> or <Link href="#">Register</Link>
+                <Link href="/signin">Sign in</Link> or{" "}
+                <Link href="/register">Register</Link>
               </Typography>
             </Grid>
           </Grid>

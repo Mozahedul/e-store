@@ -41,9 +41,14 @@ const VisibleHeaderMobile = () => {
         <Toolbar>
           <Container>
             <Grid container sx={{ placeItems: "center" }}>
-              <Grid item container xs={6}>
-                <Link href="#">
-                  <MenuIcon sx={{ color: "#333333", fontSize: "32px" }} />
+              <Grid
+                item
+                container
+                xs={6}
+                sx={{ display: "flex", alignItems: "center" }}
+              >
+                <Link href="/">
+                  <MenuIcon sx={{ color: "#333333", fontSize: "28px" }} />
                 </Link>
                 <Typography
                   component="div"
@@ -62,24 +67,24 @@ const VisibleHeaderMobile = () => {
                 item
                 container
                 xs={6}
-                sx={{ placeItems: "center", justifyContent: "end" }}
+                sx={{ alignItems: "center", justifyContent: "end" }}
               >
                 {show ? (
                   <IconButton onClick={handleClose}>
                     <CloseOutlinedIcon
-                      sx={{ color: "#222222", fontSize: "28px" }}
+                      sx={{ color: "#222222", fontSize: "24px" }}
                     />
                   </IconButton>
                 ) : (
                   <IconButton onClick={handleSearch}>
-                    <SearchIcon sx={{ color: "#222222", fontSize: "28px" }} />
+                    <SearchIcon sx={{ color: "#222222", fontSize: "24px" }} />
                   </IconButton>
                 )}
                 <IconButton>
                   <PersonOutlineIcon
                     sx={{
                       color: "#222222",
-                      fontSize: "32px",
+                      fontSize: "28px",
                       marginLeft: "10px",
                       marginRight: "10px",
                     }}
@@ -87,7 +92,7 @@ const VisibleHeaderMobile = () => {
                 </IconButton>
                 <MiuBadge badgeContent={4} color="primary">
                   <ShoppingBagOutlinedIcon
-                    sx={{ color: "#222222", fontSize: "28px" }}
+                    sx={{ color: "#222222", fontSize: "24px" }}
                   />
                 </MiuBadge>
               </Grid>
