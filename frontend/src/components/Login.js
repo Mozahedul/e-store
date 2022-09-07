@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import {
   Button,
+  Checkbox,
   Container,
   Grid,
   InputLabel,
@@ -12,7 +13,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import DoneOutlinedIcon from "@mui/icons-material/DoneOutlined";
 
 const MuiInputLabel = styled(InputLabel)({
@@ -31,6 +32,14 @@ const MuiListIconColor = styled(ListItemIcon)({
 });
 
 const Login = () => {
+  const [checkedBox, setCheckedBox] = useState(false);
+
+  const handlePassword = event => {
+    setCheckedBox(event.target.checked);
+    // Or we can use
+    // setCheckedBox(!checkedBox);
+  };
+
   return (
     <Container sx={{ marginTop: "80px" }}>
       <Grid container spacing={6}>
@@ -40,14 +49,19 @@ const Login = () => {
           <Typography variant="subtitle2">Sign in to your account.</Typography>
           <MuiInputLabel>Email</MuiInputLabel>
           <TextField type="email" placeholder="Email" fullWidth size="small" />
-
           <MuiInputLabel>Password</MuiInputLabel>
           <TextField
-            type="password"
+            type={checkedBox ? "text" : "password"}
             placeholder="xxxxxxxx"
             fullWidth
             size="small"
           />
+          <Checkbox
+            checked={checkedBox}
+            label="Show Password"
+            onClick={handlePassword}
+          />
+          {checkedBox ? "Hide Password" : "Show Password"}
           <Typography
             sx={{
               textAlign: "right",

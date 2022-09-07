@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import {
   Box,
   Button,
+  Checkbox,
   Container,
   Grid,
   InputLabel,
@@ -12,7 +13,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import DoneOutlinedIcon from "@mui/icons-material/DoneOutlined";
 import ArrowRightAltOutlinedIcon from "@mui/icons-material/ArrowRightAltOutlined";
 
@@ -37,6 +38,14 @@ const MuiListIconColor = styled(ListItemIcon)({
 });
 
 const Register = () => {
+  const [checkedBox, setCheckedBox] = useState(false);
+
+  const handlePassword = event => {
+    setCheckedBox(event.target.checked);
+    // Or we can use
+    // setCheckedBox(!checkedBox);
+  };
+
   return (
     <MuiContainer>
       <Grid container spacing={6}>
@@ -62,9 +71,13 @@ const Register = () => {
               size="small"
               fullWidth
               placeholder="John Doe"
-              type="password"
+              type={checkedBox ? "text" : "password"}
               helperText="Greater than 8 characters"
             />
+            <Typography>
+              <Checkbox checked={checkedBox} onChange={handlePassword} />
+              {checkedBox ? "Hide Password" : "Show Password"}
+            </Typography>
             <Button
               type="submit"
               variant="contained"
